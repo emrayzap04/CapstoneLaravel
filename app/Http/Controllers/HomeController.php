@@ -16,26 +16,24 @@ class HomeController extends Controller
 {
     public function redirect()
     {
-      
-        if(Auth::id())
+        if (Auth::id()) 
         {
-
-            if(Auth::user()->usertype=='0')
+            if (Auth::user()->usertype == 0) 
             {
-                $doctor = doctor::all();
-
-                return view('user.home',compact('doctor'));
-            }
-            else 
+                $doctor = Doctor::all();
+                return view('user.home', compact('doctor'));
+            } 
+            else if (Auth::user()->usertype == 1) 
             {
-                return view('admin.home');
+                $userCount = User::where('usertype', 0)->count();
+                $users = User::where('usertype', 0)->get();
+                return view('admin.home', compact('userCount', 'users'));
             }
-
-            return redirect()->back();
-          }
-
+        }
+    
+        return redirect()->back();
     }
-
+    
 
     public function index()
     {
@@ -56,6 +54,9 @@ class HomeController extends Controller
 
     public function appointment(Request $request)
     {
+        if (!Auth::check()) {
+            return redirect()->back()->with('error', 'you must login first to make an appointment.');
+        }
      
         $data = new appointment;
 
@@ -73,13 +74,8 @@ class HomeController extends Controller
 
         $data->status='In progress';
 
-        if(Auth::id())
-        
-        {
+        $data->user_id=Auth::user()->id;
 
-            $data->user_id=Auth::user()->id;
-
-        }
 
         $data->save();
 
@@ -121,5 +117,12 @@ class HomeController extends Controller
 
     }
 
+    public function viewMessage($id)
+    {
+        $appointment = Appointment::findOrFail($id);
+        return response()->json(['message' => $appointment->message]);
+
+ }
 }
+ 
 

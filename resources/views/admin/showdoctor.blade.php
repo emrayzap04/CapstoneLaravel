@@ -10,7 +10,7 @@
     <div class="container-scroller">
       <div class="row p-0 m-0 proBanner" id="proBanner">
         <div class="col-md-12 p-0 m-0">
-          <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
+          <div class="">
             <div class="ps-lg-1">
               <div class="d-flex align-items-center justify-content-between">
               </div>
@@ -33,7 +33,7 @@
 
 
         <div class="container" align="center" style="padding-top:100px;">
-
+    <h1 style="background-color:yellow; font-size: 35px; margin:10px;">IN DEVELOPMENT</h1>
         <table>
             <tr style="background-color:#00D9A5" align="center">
                 <th style="padding:10px;">Doctor Name</th>
@@ -53,7 +53,7 @@
                 <td><img height="100" width="100" src="doctorimage/{{$doctor->image}}"></td>
 
                 <td><a onclick="return confirm('are you sure to remove this')" class="btn btn-danger" href="{{url('removedoctor',$doctor->id)}}">Remove</a></td>
-                <td><a class="btn btn-primary" href="{{url('',$doctor->id)}}">Update</a></td>
+                <td><a class="btn btn-primary" href="{{url('updatedoctor',$doctor->id)}}">Update</a></td>
 
               </tr>
             @endforeach

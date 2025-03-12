@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
@@ -8,7 +9,7 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/',[HomeController::Class,'index']);
 
-Route::get('/home',[HomeController::Class,'redirect']);
+Route::get('/home',[HomeController::Class,'redirect'])->middleware('auth','verified');
 
 Route::middleware([
     'auth:sanctum',
@@ -40,4 +41,18 @@ Route::get('/showdoctor',[AdminController::Class,'showdoctor']);
 
 Route::get('/removedoctor/{id}',[AdminController::Class,'removedoctor']);
 
+Route::get('/updatedoctor/{id}',[AdminController::Class,'updatedoctor']);
 
+Route::get('/admin/get-users', [AdminController::class, 'getUsers'])->name('admin.getUsers');
+
+Route::post('/editdoctor/{id}',[AdminController::Class,'editdoctor']);
+
+Route::get('/emailview/{id}',[AdminController::Class,'emailview']);
+
+Route::get('/deleteUser/{id}',[AdminController::Class,'deleteUser']);
+
+Route::get('/editUser/{id}', [AdminController::class, 'editUser']);
+
+Route::post('/updateUser/{id}', [AdminController::class, 'updateUser']);
+
+Route::post('/sendemail/{id}',[AdminController::Class,'sendemail']);

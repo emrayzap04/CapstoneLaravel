@@ -42,15 +42,7 @@
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light">
       <div class="container">
       <img src="../assets/img/person/svfctrans.png" alt="logo " style="width:auto; height: 60px;"/>
-        <a class="navbar-brand" href="home"><span class="text-primary"><span style="color:#f204f2;">Clini</span></span>-QuickAid</a>
-        <!-- <form action="#">
-          <div class="input-group input-navbar">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="icon-addon1"style="color:#f204f2;"><span class="mai-search"></span></span>
-            </div>
-            <input type="text" class="form-control" placeholder="Search..." aria-label="Username" aria-describedby="icon-addon1">
-          </div>
-        </form> -->
+        <a class="navbar-brand" href="{{url('/')}}"><span class="text-primary"><spans style="color:#f204f2;">Clini</span></span>-QuickAid</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -92,7 +84,7 @@
               <a class="btn btn-primary ml-lg-3" href="{{route('login')}}" style="background-color: #f204f2;">Login</a>
             </li>
 
-            
+    
             
             <li class="nav-item">
               <a class="btn btn-primary ml-lg-3" href="{{route('register')}}" style="background-color: #f204f2;">Register</a>
@@ -119,8 +111,16 @@
    {{session()->get('message')}}
 
    </div>
+   
+   @endif
 
-  @endif
+  
+   @if (session('error'))
+    <div class="alert alert-danger">
+        {{session('error')}}
+    </div>
+   @endif
+
 
   <div class="page-hero bg-image overlay-dark" style="background-image: url(../assets/img/latestimg/headerimg.png); fix">
     <div class="hero-section">
@@ -128,7 +128,7 @@
         <span class="display-4 btn-headcolor" style="color:#f204f2;">CliniQuickAid</span><Br><br>
         <span class="subhead">your health</span>
         <h1 class="display-4" style="color: #00D9A5;">Deserves Quick Care</h1>
-        <a href="#" class="btn btn-primary" style="background-color:#f204f2;">Make Your Appointment Now!</a>
+        <a href="#appointment-section" class="btn btn-primary" style="background-color:#f204f2;">Make Your Appointment Now!</a>
       </div>
     </div>
   </div>
@@ -188,7 +188,9 @@
 
 @include('user.latest')
 
-@include('user.appointment')
+<div id="appointment-section">
+  @include('user.appointment')
+</div>
 
 </div> <!-- .page-section -->
 

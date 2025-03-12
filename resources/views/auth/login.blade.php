@@ -11,13 +11,21 @@
                 {{ $value }}
             </div>
         @endsession
-        <h1 style="font-size:35px; margin-left:40px; " >CliniQuickAid Login</h1>
+
+        @if(session('success'))
+            <div class="mb-4 font-medium text-sm text-green-600">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        <h1 style="font-size:35px; margin-left:40px;">CliniQuickAid Login</h1>
+        
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
             <div>
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                <x-label for="student_id" value="{{ __('Student ID') }}" />
+                <x-input id="student_id" class="block mt-1 w-full" type="text" name="student_id" :value="old('student_id')" required autofocus autocomplete="username" />
             </div>
 
             <div class="mt-4">

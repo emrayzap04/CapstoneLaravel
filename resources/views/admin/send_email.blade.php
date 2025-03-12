@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-
+  <base href="/public">
     <style type="text/css">
 
     label
@@ -60,45 +60,44 @@
 
         @endif
 
-        <form action="{{url('upload_doctor')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{url('sendemail',$data->id)}}" method="POST">
             @csrf
 
         <div style="padding:15px;">
 
-          <label>Doctor Name</label>
-          <input type="text" style="color:black;" name="name" placeholder="Write Doctor name" required="">
+          <label>Greeting</label>
+          <input type="text" style="color:black;" name="greeting" required="">
  
         </div>
         
         <div style="padding:15px;">
 
-        <label>Phone</label>
-        <input type="" style="color:black; padding:10px" name="number" placeholder="Write the number" required="">
+        <label>Body</label>
+        <input type="text" style="color:black; padding:10px" name="body" required="">
 
         </div>
 
         <div style="padding:15px;">
 
-        <label>Speciality</label>
-        
-        <select name="speciality" style="color:black;width:200px" required="">
-          <option></option>
-          <option value="head nurse">head nurse</option>
-          <option value="nurse">nurse</option>
-          <option value="Physicians">Physicians</option>
-          <option value="Assistant Nurse">Assistant Nurse</option>
-          <option value="Dentist">Dentist</option>
-
-        </select>
-
+          <label>ActionText</label>
+          <input type="text" style="color:black;" name="actiontext" required="">
+ 
+        </div>
 
         <div style="padding:15px;">
 
-        <label>Doctor Image</label>
-        <input type="file" style="width:220px; padding:10px;" name="file" required="">
-
+          <label>Action Url</label>
+          <input type="text" style="color:black;" name="actionurl">
+ 
         </div>
-         
+
+        <div style="padding:15px;">
+
+          <label>End Part</label>
+          <input type="text" style="color:black;" name="endpart" required="">
+ 
+        </div>
+
      
         <div style="padding:15px;">
 
@@ -125,8 +124,6 @@
     <!-- container-scroller -->
     <!-- plugins:js -->
     
-
-    @include('admin.script')
     <!-- End custom js for this page -->
   </body>
 </html>

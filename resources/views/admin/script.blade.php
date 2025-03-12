@@ -16,4 +16,26 @@
     <script src="admin/assets/js/todolist.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="admin/assets/js/dashboard.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $(".view-message").click(function(){
+            var message = $(this).data("message");
+            $("#messageContent").text(message);
+            $("#messageModal").modal("show");
+        });
+    });
+    </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).on("click", ".viewUser", function(){
+        $("#modalUserName").text($(this).data("name"));
+        $("#modalUserEmail").text($(this).data("email"));
+        $("#modalUserPhone").text($(this).data("phone"));
+        $("#modalUserAddress").text($(this).data("address"));
+        $("#modalStudentId").text($(this).data("student-id"));
+        $("#modalEducation").text($(this).data("education"));
+        $("#modalYear").text($(this).data("year"));
+    });
+</script>
+

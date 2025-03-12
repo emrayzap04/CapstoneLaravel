@@ -11,13 +11,12 @@
     <div class="container-scroller">
       <div class="row p-0 m-0 proBanner" id="proBanner">
         <div class="col-md-12 p-0 m-0">
-          <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
+          <div class="">
             <div class="ps-lg-1">
               <div class="d-flex align-items-center justify-content-between">
               </div>
             </div>
             <div class="d-flex align-items-center justify-content-between">
-                <i class="mdi mdi-close text-white me-0"></i>
               </button>
             </div>
           </div>
@@ -34,20 +33,21 @@
         <!-- partial -->
       <div class="container-fluid page-body-wrapper">
 
-
         <div class="container" align="center" style="padding-top:100px;">
-
+        <div style="overflow-x: auto; max-width: 100%;">
+        <h1 style="background-color:yellow; font-size: 35px; margin:10px;">IN DEVELOPMENT</h1>
         <table>
             <tr style="background-color:#00D9A5">
-                <th style="padding:10px;">Customer Name</th>
-                <th style="padding:10px;">Email</th>
-                <th style="padding:10px;">Phone</th>
-                <th style="padding:10px;">Doctor Name</th>
-                <th style="padding:10px;">Date</th>
-                <th style="padding:10px;">Message</th>
-                <th style="padding:10px;">Status</th>
-                <th style="padding:10px;">Approved</th>
-                <th style="padding:10px;">Cancel</th>
+                <th style="padding:20px;">Customer Name</th>
+                <th style="padding:20px;">Email</th>
+                <th style="padding:20px;">Phone</th>
+                <th style="padding:20px;">Doctor Name</th>
+                <th style="padding:20px;">Date</th>
+                <th style="padding:20px;">Message</th>
+                <th style="padding:20px;">Status</th>
+                <th style="padding:20px;">Approved</th>
+                <th style="padding:20px;">Cancel</th>
+                <th style="padding:20px;">Send Email</th>
             
             </tr>
 
@@ -59,7 +59,9 @@
                 <td>{{$appoint->phone}}</td>
                 <td>{{$appoint->doctor}}</td>
                 <td>{{$appoint->date}}</td>
-                <td>{{$appoint->message}}</td>
+                <td>
+                 <button class="btn btn-primary view-message" data-id="{{ $appoint->id }}" data-message="{{ $appoint->message }}">View Message</button>
+                </td>
                 <td>{{$appoint->status}}</td>
                 <td>
                    
@@ -73,25 +75,39 @@
 
                 </td>
 
+                <td>
+
+               <a class="btn btn-primary"href="{{url('emailview',$appoint->id)}}">Send Email</a>
+
+                </td>
+
             </tr>
 
             @endforeach
         
         </table>
-        
-
-
-
+         <!-- Message Modal -->
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="messageModalLabel">Message</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="messageContent">
+                    <!-- Message will be dynamically updated here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
         </div>
-
-
-
      </div>
+</div>
      
-
     <!-- container-scroller -->
     <!-- plugins:js -->
-    
 
     @include('admin.script')
     <!-- End custom js for this page -->

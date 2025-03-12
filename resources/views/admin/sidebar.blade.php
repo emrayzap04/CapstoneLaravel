@@ -10,7 +10,7 @@
                   
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal" style="color:white;">admin</h5>
+                  <h5 class="mb-0 font-weight-normal" style="color:white;">Admin</h5>
                 </div>
               </div>
               <a href="#" id="profile-dropdown" data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical" style="color:white;"></i></a>
@@ -53,9 +53,19 @@
           <li class="nav-item nav-category">
             <span class="nav-link" style="color:white;">Navigation</span>
           </li>
+          
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url(path: 'home')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title" style="color:white;">Dashboard</span>
+            </a>
+          </li>
+
 
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('add_doctor_view')}}">
+            <a class="nav-link" href="{{url(path: 'add_doctor_view')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
@@ -64,7 +74,7 @@
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('showappointment')}}">
+            <a class="nav-link" href="{{url(path: 'showappointment')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
@@ -78,6 +88,15 @@
                 <i class="mdi mdi-file-document-box"></i>
               </span>
               <span class="menu-title" style="color:white;">All Doctors</span>
+            </a>
+          </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="#">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title" style="color:white;">Add Speciality</span>
             </a>
           </li>
 

@@ -3,27 +3,37 @@
 <head>
     @include('admin.css')
 </head>
-<body>
-    <div class="container-scroller">
+<body style="background-color:white ;">
+    <div class="container-scroller w-full">
         @include('admin.sidebar')
         @include('admin.navbar')
 
-        <div class="main-panel">
-            <div class="content-wrapper">
-                <h1 style="background-color:yellow; text-align:center; font-size: 35px; margin:10px;">IN DEVELOPMENT</h1>
-        
-    <button id="toggleUsers" class="btn btn-primary" style="height: 80px; width: 140px; font-size: 35px; font-weight: bold;  background-color: #AD1457;">
-        Users <br> <span style="display: block; font-weight: bold;">{{ count($users ?? []) }}</span>
+        <div class="main-panel w-full">
+            <div class="content-wrapper flex flex-col " style="background-color: #434;">
+                <!-- <h1 style="background-color:yellow; text-align:center; font-size: 35px; margin:10px;">IN DEVELOPMENT</h1> -->
+       <div class=" justify-center p-6  flex-wrap gap-4 md:flex-col md:items-center">
+    <button id="toggleUsers" class="btn btn-primary  md:w-1/2" style="height: auto; width: 250px; font-size: 35px; font-weight: 400;  background-color: #AD1457;  padding: 30px; margin: 15px;">
+    Users <br> <span style="display: grid; font-weight: 400;" class="pt-4">{{ count($users ?? []) }}</span>
     </button>
-
+    <button id="toggleUsers" class="btn btn-primary  md:w-1/2" style="height: auto; width: 250px; font-size: 35px; font-weight:400;  background-color: #AD1457;  padding: 30px; margin: 15px;">
+        Appointment <br> <span style="display: block; font-weight: 400;" class="pt-4">↓</span>
+    </button>
+    <button id="toggleUsers" class="btn btn-primary  md:w-1/2" style="height: auto; width: 250px; font-size: 35px; font-weight: 400;  background-color: #AD1457;  padding: 30px; margin: 15px;">
+        Availability <br> <span style="display: block; font-weight: 400;" class="pt-4">↓</span>
+    </button>
+    <button id="toggleUsers" class="btn btn-primary  md:w-1/2" style="height: auto; width: 250px; font-size: 35px; font-weight: 400;  background-color: #AD1457;  padding: 30px; margin: 15px;">
+        Equipment <br> <span style="display: block; font-weight: 400;" class="pt-4">↓</span>
+    </button>
+    </div> 
     <div id="userTable" style="margin-top: 20px;">
-        <h3>All Users</h3>
+        <h3 style="margin-left: 12px;">User's Information</h3>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Student ID</th>
+                    <th>Year Level</th> 
                     <th>Status</th>
                 </tr>
             </thead>
@@ -33,6 +43,7 @@
                         <td style="color:#778899;">{{ $user->name }}</td>
                         <td style="color:#778899;">{{ $user->email }}</td>
                         <td style="color:#778899;">{{ $user->student_id }}</td>
+                        <td style="color:#778899;">{{ $user->year_level }}</td>
                         <td>
                         <button class="btn btn-primary viewUser" 
                          data-name="{{ $user->name}}" 
@@ -68,10 +79,10 @@
 
         if (userTable.style.display === 'none') {
             userTable.style.display = 'block';
-            this.innerHTML = 'Hide Users';
+            this.innerHTML = 'Users <br> <span style="display: grid; font-weight: 400;" class="pt-4">{{ count($users ?? []) }}</span>';
         } else {
             userTable.style.display = 'none';
-            this.innerHTML = `Users <br> <span id="userCount" style="display: block; font-weight: bold;">{{ count($users ?? []) }}</span>`;
+            this.innerHTML = `Users <br> <span style="display: grid; font-weight: 400;" class="pt-4">{{ count($users ?? []) }}</span>`;
 
         }
     });

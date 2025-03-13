@@ -19,7 +19,7 @@
     
      @include('admin.css')
 </head>
-<body>
+<body style="background-color: #334;">
     <div class="container-scroller">
         @include('admin.sidebar')
         @include('admin.navbar')

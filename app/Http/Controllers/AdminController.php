@@ -16,6 +16,7 @@ use App\Notifications\SendEmailNotification;
 
 class AdminController extends Controller
 {
+  
     public function addview()
     {
        

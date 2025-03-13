@@ -1,4 +1,4 @@
-<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0"  style="background-image: url(../assets/img/latestimg/svfcheader.jpg); background-repeat: no-repeat; background-size: cover;">
+<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0"  style="background-image: url(../assets/img/latestimg/building.png); background-repeat: no-repeat; background-size: fit; background-attachment: fixed;">
     <div>
         {{ $logo }}
     </div>
